@@ -2,9 +2,9 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-gray-800 text-white p-6 lg:p-8 flex flex-col lg:flex-row justify-between items-center">
+    <footer className="bg-gray-800 text-white p-4 lg:p-6 flex flex-col lg:flex-row justify-between items-center">
       <div className="flex flex-wrap items-center space-x-4 mb-4 lg:mb-0">
-        <span className="mr-4 lg:mr-8">Get connected with us on social networks:</span>
+        <span className="mr-4 lg:mr-8 mb-4 lg:mb-0">Get connected with us on social networks:</span>
         <a href="#" className="text-gray-300 hover:text-gray-100">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -29,13 +29,13 @@ function Footer() {
             <path d="M8.24 21.01.02 12.8a10.8 10.8 0 010-11.6c7.76 0 14 6.24 14 14a10.8 10.8 0 01-10.8 10.8zM8.24 11.8a1.6 1.6 0 110-3.2 1.6 1.6 0 010 3.2zM19.4 8.4a2.1 2.1 0 10-4.2 0 2.1 2.1 0 010 4.2z" />
           </svg>
         </a>
-        {/* Add additional links and icons */}
-        <a href="#" className="text-gray-300 hover:text-gray-100">Career</a>
-        <a href="#" className="text-gray-300 hover:text-gray-100">Inspiration</a>
-        <a href="#" className="text-gray-300 hover:text-gray-100">About</a>
-        <a href="#" className="text-gray-300 hover:text-gray-100">Support</a>
-        <a href="#" className="text-gray-300 hover:text-gray-100">Blog</a>
-        <a href="#" className="text-gray-300 hover:text-gray-100">Advertising</a>
+
+        <a href="#" className="text-gray-300 hover:text-gray-100 mb-4 lg:mb-0">Career</a>
+        <a href="#" className="text-gray-300 hover:text-gray-100 mb-4 lg:mb-0">Inspiration</a>
+        <a href="#" className="text-gray-300 hover:text-gray-100 mb-4 lg:mb-0">About</a>
+        <a href="#" className="text-gray-300 hover:text-gray-100 mb-4 lg:mb-0">Support</a>
+        <a href="#" className="text-gray-300 hover:text-gray-100 mb-4 lg:mb-0">Blog</a>
+        <a href="#" className="text-gray-300 hover:text-gray-100 mb-4 lg:mb-0">Advertising</a>
         {/* Add icons for Instagram, Facebook, and Twitter */}
         <a href="#" className="text-gray-300 hover:text-gray-100">
           <svg
@@ -44,7 +44,7 @@ function Footer() {
             fill="currentColor"
             viewBox="0 0 24 24"
           >
-            {/* Insert Instagram icon SVG here */}
+            
           </svg>
         </a>
         <a href="#" className="text-gray-300 hover:text-gray-100">
@@ -54,7 +54,7 @@ function Footer() {
             fill="currentColor"
             viewBox="0 0 24 24"
           >
-            {/* Insert Facebook icon SVG here */}
+
           </svg>
         </a>
         <a href="#" className="text-gray-300 hover:text-gray-100">
@@ -64,7 +64,7 @@ function Footer() {
             fill="currentColor"
             viewBox="0 0 24 24"
           >
-            {/* Insert Twitter icon SVG here */}
+            
           </svg>
         </a>
       </div>
@@ -74,7 +74,7 @@ function Footer() {
           src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
           alt="Your company logo"
         />
-        <span className="text-sm">© 2024 Dribbble. All Rights Reserved.</span>
+        <span className="text-xs lg:text-sm">© 2024 Dribbble. All Rights Reserved.</span>
       </div>
     </footer>
   );

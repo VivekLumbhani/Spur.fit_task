@@ -1,10 +1,41 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Lottie from "lottie-react";
 import natureanimated from "./nature.json";
 import BoxMessageComponent from "./BoxMessageComponent";
+import { gsap } from "gsap";
+
 const TextMessage = () => {
+  const textRef = useRef(null);
+  const lottieRef = useRef(null);
+
+  useEffect(() => {
+    const animateText = () => {
+      gsap.fromTo(
+        textRef.current.children,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 5, stagger: 0.2, ease: "power4.out" }
+      );
+    };
+
+    const handleScroll = () => {
+      const textPosition = textRef.current.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (textPosition < windowHeight) {
+        animateText();
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="text-center pt-16 pb-8">
+    <div className="text-center pt-16 pb-8" ref={textRef}>
       <div className="text-left pl-8 overflow-hidden max-w-md mx-auto">
         <h1 className="text-4xl font-bold mb-4 animate-typing">Hey all,</h1>
         <p className="text-gray-700 leading-relaxed animate-typing">
@@ -41,12 +72,10 @@ const TextMessage = () => {
           </a>
         </div>
       </div>
-      <div className="relative w-full max-w-xl mx-auto">
-      <Lottie animationData={natureanimated} />
-
-      <BoxMessageComponent/>
-    </div>
-
+      <div className="relative w-full max-w-xl mx-auto" ref={lottieRef}>
+        <Lottie animationData={natureanimated} />
+        <BoxMessageComponent />
+      </div>
     </div>
   );
 };

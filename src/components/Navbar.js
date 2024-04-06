@@ -21,7 +21,7 @@ export default function Navbar() {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               {/* Logo */}
-              <div className="flex items-center justify-center md:justify-center md:items-center">
+              <div className="hidden md:flex items-center justify-center md:items-center">
                 <img
                   className="h-8 w-auto"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
@@ -126,13 +126,13 @@ export default function Navbar() {
               <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex items-center justify-between h-16">
                   {/* Logo */}
-                  <div className="flex items-center justify-center md:justify-center md:items-center">
-                    <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="Your Company"
-                    />
-                  </div>
+                  <div className="flex items-center justify-items-start md:hidden">
+  <img
+    className="h-8 w-auto"
+    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+    alt="Your Company"
+  />
+</div>
 
                   {/* Search input */}
                   <div className="relative hidden sm:flex items-center ml-6">
@@ -162,7 +162,7 @@ export default function Navbar() {
                   </div>
 
                   {/* Profile and notification icons */}
-                  <div className="flex items-center ml-auto">
+                  <div className="flex items-center justify-right ml-auto">
                     {/* Sign up button */}
                     <div className="bg-white p-0 shadow-md rounded-full">
                       <button className="text-sm text-gray-800 rounded-full px-7 py-3">
