@@ -75,7 +75,7 @@ const TwoColumnBox = () => {
                 how to become a better spouse, parent, or manager - like we did...
               </p>
             </div>
-            {/* Add more boxes with headings and text here */}
+
           </div>
         </div>
       </div>
