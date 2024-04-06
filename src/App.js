@@ -11,6 +11,8 @@ import DottedCardBox from './components/DottenBox';
 import InteractiveCard from './components/DottenBox';
 import HorizontalDottedLine from './components/DottenBox';
 import Sign from './components/Sign';
+import TwoColumnBox from './components/TwoColumnBox';
+import JobList from './components/VacancyBox';
 
 {/* <div className="bg-gray-100 h-screen flex items-center justify-center">
 <div className="bg-white p-4 shadow-md rounded-md">
@@ -31,6 +33,8 @@ function App() {
     <BoxMessageComponent/>
     <HorizontalDottedLine/>
     <Sign/>
+    <TwoColumnBox/>
+    <JobList/>
     </>
     
   );
