@@ -18,6 +18,7 @@ import Card from "./components/Cards";
 import ImageSlider from "./components/ImageSlider";
 import AutoScrollView from "./components/ImageSlider";
 import Footer from "./components/Footer";
+import {BrowserRouter as  Router ,Routes,Route} from "react-router-dom"
 
 {
   /* <div className="bg-gray-100 h-screen flex items-center justify-center">
@@ -28,7 +29,7 @@ import Footer from "./components/Footer";
 </div> */
 }
 
-function App() {
+function App(props) {
 
   return (
     <>
@@ -42,7 +43,9 @@ function App() {
       <HorizontalDottedLine />
       <Sign />
       <TwoColumnBox />
-      <JobList />
+      
+      {props.isAdmin ?<JobList isAdmin="admin"/> :<JobList/>}
+
       <DownloadBar />
       <Card />
       <AutoScrollView/>
