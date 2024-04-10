@@ -49,14 +49,25 @@ const JobList = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const { role, features } = vacancyform;
-    const updatedVacancies = vacancies.map((vacancy) =>
-      vacancy === selectedVacancy ? { ...vacancy, role, features } : vacancy
-    );
-    setVacancies(updatedVacancies);
-    localStorage.setItem("vacancies", JSON.stringify(updatedVacancies));
+  
+    // If selectedVacancy is not null, it means we're editing an existing vacancy
+    if (selectedVacancy !== null) {
+      const updatedVacancies = vacancies.map((vacancy, index) =>
+        index === vacancies.indexOf(selectedVacancy) ? { ...vacancy, role, features } : vacancy
+      );
+      setVacancies(updatedVacancies);
+    } else {
+      // If selectedVacancy is null, it means we're adding a new vacancy
+      const newVacancy = { role, features };
+      const updatedVacancies = [...vacancies, newVacancy];
+      setVacancies(updatedVacancies);
+    }
+  
+    localStorage.setItem("vacancies", JSON.stringify(vacancies));
     setVacancyform({ role: "", features: "" });
     setSelectedVacancy(null);
   };
+  
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -99,18 +110,17 @@ const JobList = (props) => {
       <div className="relative w-full max-w-3xl mx-auto" ref={jobListRef}>
         <div className="">
           <div className="container mx-auto px-4 py-8">
-
-          <div className="flex items-center justify-between mb-8">
-  <h2 className="text-3xl font-medium">Open vacancies</h2>{" "}
-  {props.isAdmin && (
-    <button
-      onClick={addVacancy}
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    >
-      Add
-    </button>
-  )}
-</div>
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-medium">Open vacancies</h2>{" "}
+              {props.isAdmin && (
+                <button
+                  onClick={addVacancy}
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  Add
+                </button>
+              )}
+            </div>
             {showAddForm && (
               <form onSubmit={handleSubmit}>
                 <input
