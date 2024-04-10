@@ -2,11 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 
 const JobList = (props) => {
-  if (props.isAdmin) {
-    console.log("admin ");
-  } else {
-    console.log("not admin");
-  }
   const jobListRef = useRef(null);
   const [showAddForm, setShowAddForm] = useState(false);
   const [vacancies, setVacancies] = useState([]);
@@ -73,6 +68,13 @@ const JobList = (props) => {
     }));
   };
 
+  const handleDelete = (index) => {
+    const updatedVacancies = [...vacancies];
+    updatedVacancies.splice(index, 1);
+    setVacancies(updatedVacancies);
+    localStorage.setItem("vacancies", JSON.stringify(updatedVacancies));
+  };
+
   const [vacancyform, setVacancyform] = useState({
     role: "",
     features: "",
@@ -135,7 +137,20 @@ const JobList = (props) => {
                   key={index}
                   className="bg-yellow-50 rounded-lg shadow-md px-6 py-8"
                 >
-                  <h3 className="text-lg font-bold mb-2">{vacancy.role}</h3>
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-lg font-bold">{vacancy.role}</h3>
+                    {props.isAdmin && (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDelete(index);
+                        }}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        Delete
+                      </button>
+                    )}
+                  </div>
                   <ul className="list-disc pl-5 text-sm">
                     {Array.isArray(vacancy.features) ? (
                       vacancy.features.map((feature, idx) => (
